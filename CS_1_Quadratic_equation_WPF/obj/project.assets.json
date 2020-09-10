@@ -1,0 +1,90 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "ClassLibrary/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/ClassLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ClassLibrary.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ClassLibrary/1.0.0": {
+      "type": "project",
+      "path": "../../IlyaToritsyn/C_sharp_quadratic_equation/ClassLibrary/ClassLibrary.csproj",
+      "msbuildProject": "../../IlyaToritsyn/C_sharp_quadratic_equation/ClassLibrary/ClassLibrary.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETCoreApp,Version=v3.1": [
+      "ClassLibrary >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Ilya\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\Ilya\\source\\repos\\CS_1_Quadratic_equation_WPF\\CS_1_Quadratic_equation_WPF\\CS_1_Quadratic_equation_WPF.csproj",
+      "projectName": "CS_1_Quadratic_equation_WPF",
+      "projectPath": "C:\\Users\\Ilya\\source\\repos\\CS_1_Quadratic_equation_WPF\\CS_1_Quadratic_equation_WPF\\CS_1_Quadratic_equation_WPF.csproj",
+      "packagesPath": "C:\\Users\\Ilya\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Ilya\\source\\repos\\CS_1_Quadratic_equation_WPF\\CS_1_Quadratic_equation_WPF\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\Ilya\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "netcoreapp3.1"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "projectReferences": {
+            "C:\\Users\\Ilya\\source\\repos\\IlyaToritsyn\\C_sharp_quadratic_equation\\ClassLibrary\\ClassLibrary.csproj": {
+              "projectPath": "C:\\Users\\Ilya\\source\\repos\\IlyaToritsyn\\C_sharp_quadratic_equation\\ClassLibrary\\ClassLibrary.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netcoreapp3.1": {
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          },
+          "Microsoft.WindowsDesktop.App.WPF": {
+            "privateAssets": "none"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
