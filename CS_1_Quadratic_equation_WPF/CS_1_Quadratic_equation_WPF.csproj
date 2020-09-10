@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\IlyaToritsyn\C_sharp_quadratic_equation\ClassLibrary\ClassLibrary.csproj" />
+    <Reference Include="ClassLibrary">
+      <HintPath>bin\Debug\netcoreapp3.1\ClassLibrary.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

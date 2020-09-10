@@ -17,6 +17,5 @@ C:\Users\Ilya\source\repos\CS_1_Quadratic_equation_WPF\CS_1_Quadratic_equation_W
 C:\Users\Ilya\source\repos\CS_1_Quadratic_equation_WPF\CS_1_Quadratic_equation_WPF\obj\Debug\netcoreapp3.1\CS_1_Quadratic_equation_WPF.dll
 C:\Users\Ilya\source\repos\CS_1_Quadratic_equation_WPF\CS_1_Quadratic_equation_WPF\obj\Debug\netcoreapp3.1\CS_1_Quadratic_equation_WPF.pdb
 C:\Users\Ilya\source\repos\CS_1_Quadratic_equation_WPF\CS_1_Quadratic_equation_WPF\obj\Debug\netcoreapp3.1\CS_1_Quadratic_equation_WPF.genruntimeconfig.cache
-C:\Users\Ilya\source\repos\CS_1_Quadratic_equation_WPF\CS_1_Quadratic_equation_WPF\bin\Debug\netcoreapp3.1\ClassLibrary.dll
 C:\Users\Ilya\source\repos\CS_1_Quadratic_equation_WPF\CS_1_Quadratic_equation_WPF\bin\Debug\netcoreapp3.1\ClassLibrary.pdb
 C:\Users\Ilya\source\repos\CS_1_Quadratic_equation_WPF\CS_1_Quadratic_equation_WPF\obj\Debug\netcoreapp3.1\CS_1_Quadratic_equation_WPF.csproj.CopyComplete
