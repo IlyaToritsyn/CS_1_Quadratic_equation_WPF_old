@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using ClassLibrary;
 
 namespace CS_1_Quadratic_equation_WPF
@@ -24,29 +13,17 @@ namespace CS_1_Quadratic_equation_WPF
         public MainWindow()
         {
             InitializeComponent();
-
-            textBox_a.GotMouseCapture += TextBox_a_GotMouseCapture;
-            textBox_b.GotMouseCapture += TextBox_b_GotMouseCapture;
-            textBox_c.GotMouseCapture += TextBox_c_GotMouseCapture;
         }
 
-        private void TextBox_c_GotMouseCapture(object sender, MouseEventArgs e)
-        {
-            textBox_c.Background = Brushes.White;
-        }
-
-        private void TextBox_b_GotMouseCapture(object sender, MouseEventArgs e)
-        {
-            textBox_b.Background = Brushes.White;
-        }
-
-        private void TextBox_a_GotMouseCapture(object sender, MouseEventArgs e)
-        {
-            textBox_a.Background = Brushes.White;
-        }
-
+        /// <summary>
+        /// Кнопка "Решить".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_solve_Click(object sender, RoutedEventArgs e)
         {
+            label_answer.Content = "";
+
             try
             {
                 QuadraticEquation equation = new QuadraticEquation(textBox_a.Text, textBox_b.Text, textBox_c.Text);
@@ -63,7 +40,7 @@ namespace CS_1_Quadratic_equation_WPF
 
                 else if (equation.IsXOne)
                 {
-                    label_answer.Content = "Корень равен " + equation.X1.ToString() + ".";
+                    label_answer.Content = "x = " + equation.X1.ToString();
                 }
 
                 else if (equation.NoX)
@@ -73,7 +50,7 @@ namespace CS_1_Quadratic_equation_WPF
 
                 else
                 {
-                    label_answer.Content = "1 корень равен " + equation.X1 + ". 2 корень равен " + equation.X2 + ".";
+                    label_answer.Content = "x1 = " + equation.X1 + "\nx2 = " + equation.X2;
                 }
             }
 
@@ -105,67 +82,36 @@ namespace CS_1_Quadratic_equation_WPF
         }
 
         /// <summary>
-        /// Разрешение ввода лишь цифр, '-' в начале и 1 запятой после цифры.
+        /// При изменении текста внутри любого текстбокса.
         /// </summary>
-        /// <param name="textBox">Обрабатываемый текстбокс.</param>
-        /// <param name="e">Нажатая клавиша.</param>
-        private void IsValidKey(TextBox textBox, TextCompositionEventArgs e)
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            char number = e.Text;
-            char charBeforeCursor; //Символ до курсора.
+            TextBox textbox = (TextBox)sender;
+            int caretIndex = textbox.CaretIndex;
+            int maxSymbolsQty = 15;
+            int extraSymbolsQty = textbox.Text.Length - maxSymbolsQty;
 
-            try
+            //Если превышено макс. количество символов в текстбоксе, то лишнее просто стирается.
+            if (textbox.Text.Length > maxSymbolsQty)
             {
-                charBeforeCursor = textBox.Text[textBox.SelectionStart - 1];
+                textbox.Text = textbox.Text.Remove(caretIndex - extraSymbolsQty, extraSymbolsQty);
+                textbox.CaretIndex = caretIndex - extraSymbolsQty;
             }
 
-            catch
+            else
             {
-                charBeforeCursor = ' ';
-            }
-
-            //Игнорирование неподходящих символов при вводе коэффициентов.
-            if (!Char.IsDigit(number))
-            {
-                //Разрешаем печатать '-' в начале.
-                if (number == '-' && textBox.SelectionStart == 0)
+                if (double.TryParse(textbox.Text, out _))
                 {
-
+                    textbox.Background = Brushes.White;
                 }
 
-                //Разрешаем печатать лишь 1 запятую и лишь после цифры.
-                else if (number == ',' && (Char.IsDigit(charBeforeCursor) && !textBox.Text.Contains(',')))
-                {
-
-                }
-
-                //Разрешаем пользоваться Backspace.
-                else if (number == 8)
-                {
-
-                }
-
-                //Игнорируем все непредусмотренные символы.
                 else
                 {
-                    e.Handled = true;
+                    textbox.Background = Brushes.LightPink;
                 }
             }
-        }
-
-        private void TextBox_a_KeyDown(object sender, KeyEventArgs e)
-        {
-            IsValidKey(textBox_a, e);
-        }
-
-        private void TextBox_b_KeyDown(object sender, KeyEventArgs e)
-        {
-            IsValidKey(textBox_b, e);
-        }
-
-        private void TextBox_c_KeyDown(object sender, KeyEventArgs e)
-        {
-            IsValidKey(textBox_c, e);
         }
     }
 }
